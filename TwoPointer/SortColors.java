@@ -26,3 +26,54 @@
 // 1 <= n <= 300
 // nums[i] is either 0, 1, or 2.
 
+import java.util.*;
+public class SortColors
+{
+    public static int[] swap(int[] arr,int a,int b)
+    {
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+        return arr;
+    }
+    public static int[] sort(int[] arr)
+    {
+        int left = 0;
+        int curr = 0;
+        int right = arr.length-1;
+        while(curr<=right)
+        {
+            if(arr[curr]==0)
+            {
+                arr = swap(arr,curr,left);
+                left++;
+                curr++;
+            }
+            else if(arr[curr]==2)
+            {
+                arr = swap(arr,curr,right);
+                right--;
+            }
+            else 
+            {
+                curr++;
+            }
+        }
+        return arr;
+    }
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int [] arr = new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i] = sc.nextInt();
+        }
+        int [] res = sort(arr);
+        for(int i=0;i<n;i++)
+        {
+            System.out.print(arr[i]+" ");
+        }
+    }
+}
