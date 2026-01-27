@@ -95,3 +95,54 @@ public class Constructors {
     }
 }
 
+
+## Saving Space (Bit-Level Optimization)
+
+A date is usually stored using **three integers**:
+- Date → 4 bytes
+- Month → 4 bytes
+- Year → 4 bytes  
+
+Total memory used:
+- `3 × 4 bytes = 12 bytes = 96 bits`
+
+---
+
+### Optimized Bit Representation
+
+Instead of storing each value as an integer, we can store them using only the **required number of bits**.
+
+- **Date (1–31)**  
+  - Max value: 31  
+  - Requires: `2⁵ = 32` → **5 bits**
+
+- **Month (1–12)**  
+  - Max value: 12  
+  - Requires: `2⁴ = 16` → **4 bits**
+
+- **Year (0–99)**  
+  - Max value: 99  
+  - Requires: `2⁷ = 128` → **7 bits**
+
+---
+
+### Total Bits Required
+Date : 5 bits
+Month : 4 bits
+Year : 7 bits
+
+---
+
+### Memory Comparison
+
+| Approach | Memory Used |
+|--------|-------------|
+Traditional (3 integers) | 96 bits |
+Bit-level storage | 16 bits |
+
+---
+
+### Conclusion
+
+By storing date components at the **bit level**, we can significantly reduce memory usage.  
+This optimization becomes highly effective in **large-scale databases** where millions of records are stored.
