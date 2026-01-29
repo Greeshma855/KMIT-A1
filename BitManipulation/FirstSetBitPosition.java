@@ -12,3 +12,26 @@
 // Positions from right → 1 2 3 4 5
 // Rightmost 1 is at position 2
 // Output: 2
+import java.util.*;
+public class FirstSetBitPosition
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        if(n == 0)
+        {
+            System.out.println(0);
+            return;
+        }
+        
+        int position = 1;
+        while((n & 1) == 0)
+        {
+            n = n >> 1;
+            position++;
+        }
+        
+        System.out.println(position);
+    }
+}
