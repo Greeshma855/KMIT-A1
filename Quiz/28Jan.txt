@@ -1,0 +1,367 @@
+OCA Java MCQ's 28 Jan 2026
+==================================================
+
+Question 1
+----------
+class Test {
+    public static void main(String[] args) {
+        short a = 0;
+        for (; a < 10; a++) {
+            a = a + 6;
+        }
+        System.out.println(a);
+    }
+}
+
+Options:
+a. Compilation fails
+b. 0
+c. Run time exception
+d. 14 ✅
+
+Explanation:
+1st iteration: a = 0 → a = a + 6 = 6 → a++ → 7
+2nd iteration: a = 7 → a = a + 6 = 13 → a++ → 14
+Loop ends because 14 < 10 is false.
+
+--------------------------------------------------
+
+Question 2
+----------
+class Demo {
+    String title;
+    int value;
+
+    public Demo() {
+        title += " class";
+    }
+
+    public Demo(int value) {
+        this.value = value;
+        title = "Demo";
+    }
+}
+
+class Test {
+    public static void main(String args[]) {
+        Demo d = new Demo(5);
+        System.out.println(d.title);
+    }
+}
+
+Options:
+a. Demo ✅
+b. Class
+c. Class Demo
+d. Compilation fails
+e. Demo class
+
+Explanation:
+Parameterized constructor is called.
+title is explicitly set to "Demo".
+
+--------------------------------------------------
+
+Question 3
+----------
+class Test {
+    String s;
+    public static void main(String[] args) {
+        System.out.println(new Test().s);
+    }
+}
+
+Options:
+a. compilation fails
+b. compiles but will not run
+c. prints nothing
+d. null ✅
+
+Explanation:
+A class can instantiate itself inside its own code.
+Instance variables receive default values.
+Default value of String is null.
+
+--------------------------------------------------
+
+Question 4
+----------
+class Test {
+    public static void main(String[] args) {
+        String s;
+        System.out.println(s);
+    }
+}
+
+Options:
+a. compiles but will not run
+b. Prints Nothing
+c. null
+d. compilation fails ✅
+
+Explanation:
+Instance variables live in heap → JVM initializes them
+Local variables live on stack → JVM does NOT initialize them
+Local variables must be initialized before use.
+
+--------------------------------------------------
+
+Question 5
+----------
+class Test {
+    public static void main(String[] args) {
+        int x = 1;
+        if (x)
+            System.out.println("A");
+        else
+            System.out.println("B");
+    }
+}
+
+Options:
+a. Run time exception
+b. B
+c. Compilation fails ✅
+d. A
+
+Explanation:
+Java requires boolean expressions in if conditions.
+
+--------------------------------------------------
+
+Question 6
+----------
+class Test {
+    public static void main(String[] args) {
+        int x = 10;
+        int y;
+        System.out.println(x + y);
+    }
+}
+
+Options:
+a. Run time exception
+b. Compilation fails ✅
+c. Garbage value
+d. 10
+e. 0
+
+Explanation:
+Local variable y is not initialized.
+
+--------------------------------------------------
+
+Question 7
+----------
+class Test {
+    public static void main(String[] args) {
+        byte a = 3;
+        int b = 10;
+        float c = 100.1f;
+        byte d;
+
+        d = b + a;      // Line 7
+        b = (int) a;   // Line 8
+        a += 7;        // Line 9
+    }
+}
+
+Options:
+a. Compilation fails at line 12
+b. Compilation fails at line 7 ✅
+c. Compilation fails at line 10
+d. Compilation fails at line 11
+e. Compilation fails at line 8
+f. Compilation succeeds
+g. Compilation fails at line 9
+
+Explanation:
+b + a results in int and cannot be assigned to byte.
+
+--------------------------------------------------
+
+Question 8
+----------
+Statements:
+A: class Rabbit {}
+B: import java.util.*;
+C: package animals;
+
+Options:
+a. C, A
+b. A, B, C
+c. B, A
+d. A, C
+e. C, B, A ✅
+f. B, C, A
+g. A, B
+
+Explanation:
+Correct order is package → import → class.
+
+--------------------------------------------------
+
+Question 9
+----------
+class Test {
+    public static void main(String[] args) {
+        int year;
+        int day;
+        year = 2050;
+        System.out.println(year);
+    }
+}
+
+Options:
+a. Run time exception
+b. Compilation fails at Line-4
+c. 0
+d. Compilation fails at Line-5
+e. Compilation fails at Line-3
+f. 2050 ✅
+
+Explanation:
+Unused local variables do not cause compilation errors.
+
+--------------------------------------------------
+
+Question 10
+-----------
+class Test {
+    int x;
+    int y;
+    public static void main(String[] args) {
+        Test t = new Test();
+        t.y = 10;
+        System.out.println(t.x + t.y);
+    }
+}
+
+Options:
+a. Run time exception
+b. Garbage value
+c. 0
+d. 10 ✅
+e. Compilation fails
+
+Explanation:
+Instance variables get default value 0.
+
+--------------------------------------------------
+
+Question 11
+-----------
+public class Test {
+    int count;
+    public void Test() {
+        count = 4;
+    }
+    public static void main(String[] args) {
+        Test s = new Test();
+        System.out.println(s.count);
+    }
+}
+
+Options:
+a. Compilation fails on line 7
+b. 0 ✅
+c. Compilation fails on line 4
+d. 4
+e. Compilation fails on line 3
+f. Compilation fails on line 8
+
+Explanation:
+Method Test() is not a constructor.
+Default constructor is used.
+
+--------------------------------------------------
+
+Question 12
+-----------
+class Test {
+    public static void main(String[] args) {
+        int a = 4;
+        double b = 8;
+        System.out.println(a + b + "KMIT");
+    }
+}
+
+Options:
+a. 12.0KMIT ✅
+b. 12KMIT
+c. 48.0KMIT
+d. 48KMIT
+
+Explanation:
+Numeric addition happens before string concatenation.
+If operands are of different numeric types, the smaller type is promoted to the larger type.
+--------------------------------------------------
+
+Question 13
+-----------
+class T {
+    private T() {
+        System.out.println("hello world");
+    }
+    public static void main(String[] args) {
+        T t = new T();
+    }
+}
+
+Options:
+a. hello world ✅
+b. prints nothing
+c. none of these
+d. compilation fails
+
+Explanation:
+Private constructor is accessible within the same class.
+
+--------------------------------------------------
+
+Question 14
+-----------
+class Test {
+    public static void main(String[] args) {
+        float f = 23.11f;
+        short s = (short) f;
+        System.out.println(s);
+    }
+}
+
+Options:
+a. 23.0
+b. 0
+c. 23 ✅
+d. Compilation fails
+
+Explanation:
+Fractional part is truncated during casting.
+
+--------------------------------------------------
+
+Question 15
+-----------
+class Test {
+    public static void main(String[] args) {
+        Test t = new Test();
+        System.out.print(1);
+    }
+    protected void finalize() {
+        System.out.println(" " + 2);
+    }
+}
+
+Options:
+a. 2 1
+b. Can’t predict the output
+c. 1 2
+d. 2
+e. 1 ✅
+f. Compilation fails
+
+Explanation:
+finalize() is called only by the Garbage Collector (GC).
+GC is not guaranteed to run before program termination.
+Therefore, finalize() may never execute.
+
