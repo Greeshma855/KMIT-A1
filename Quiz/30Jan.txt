@@ -1,0 +1,406 @@
+//what is the output?
+1.import static java.lang.System.*;
+class ImportDemo
+{
+	public static void main(String args[])
+	{
+	out.println("Srinivas");
+	}
+} 
+
+A) Compiler Error
+B) Runtime Erro
+C) Srinivas
+D) None of the above
+Answer: (C)
+
+2.// Filename: Hello.java 
+package a; 
+public class Hello { 
+    private void printMessage() 
+    { 
+        System.out.println("Hello"); 
+    } 
+    public void fun() 
+    { 
+        printMessage(); 
+    } 
+} 
+
+// Filename: World.java 
+package b; 
+import a.Hello; 
+public class World { 
+    private void printMessage() 
+    { 
+        System.out.println("World"); 
+    } 
+  
+    public static void main(String[] args) 
+    { 
+        Hello gfg = new Hello();
+        gfg.fun(); 
+    } 
+} 
+
+a).Hello
+b).Compilation error
+c).Runtime error
+d).World
+
+Ans: a
+
+3.// Filename: Hello.java 
+package a; 
+public class Hello { 
+    private void printMessage() 
+    { 
+        System.out.println("Hello"); 
+    } 
+    public void fun() 
+    { 
+        printMessage(); 
+    } 
+} 
+  
+// Filename: World.java 
+package b; 
+import a.Hello; 
+public class World { 
+    private void printMessage() 
+    { 
+        System.out.println("World"); 
+    } 
+  
+    public static void main(String[] args) 
+    { 
+        Hello gfg = new World();
+        gfg.fun(); 
+    } 
+} 
+
+a).Hello
+b).Compilation error
+c).Runtime error
+d).World
+
+Ans: b
+
+//4.what is the output?
+package a;
+class display 
+    {
+        int x;
+        void show() 
+        {
+            if (x > 1)
+                System.out.print(x + " ");
+        }
+    }
+    class Hello 
+    {
+        public static void main(String args[]) 
+        {
+            display[] arr=new display[3];
+            for(int i=0;i<3;i++)
+                arr[i]=new display();
+            arr[0].x = 0;      
+            arr[1].x = 1;
+            arr[2].x = 2;
+            for (int i = 0; i < 3; ++i)
+                arr[i].show();
+         }
+    }
+
+a) 0
+b) 1
+c) 2
+d) 0 1 2
+Answer: c
+
+//5.what is the output?
+class T
+{
+	int t = 20;
+	T()
+	{
+		t = 40;
+	}
+	{
+		t=50;
+	}
+} 
+class Hello 
+{
+	public static void main(String args[]) {
+		T t1 = new T();
+		System.out.println(t1.t);
+		}
+	} 
+
+a) 20
+b) 40
+d) Compiler Error
+d) Runtime error
+Answer: (b)
+
+//6.what is the output
+class Point {
+	int m_x, m_y;
+	public Point(int x, int y)
+	{
+		m_x = x;
+		m_y = y;
+	}
+	public static void main(String args[])
+	{
+		Point p = new Point();
+	}
+} 
+
+a) compilation error
+b) runtime error
+c) No output
+d) 0  0
+Answer: (A)
+
+//7.what is the output?
+class Test 
+{ 
+    static int a; 
+      
+    static
+    { 
+        a = 4; 
+        System.out.print("inside static block "); 
+        System.out.print("a = " + a); 
+    } 
+      
+    Test() 
+    { 
+        System.out.print("inside constructor "); 
+        a = 10; 
+    } 
+      
+    public static void func() 
+    { 
+        a = a + 1; 
+        System.out.print("a = " + a); 
+    } 
+      
+    public static void main(String[] args) 
+    { 
+  
+        Test obj = new Test(); 
+        obj.func(); 
+  
+    } 
+} 
+
+a).inside static block a = 4inside constructor a = 11
+b).Compiler Error
+c).Run Time Error
+d).inside static block a = 4inside constructor a = 5
+
+Ans) a
+
+//8.what is the output?
+class Example
+{
+Example()
+{
+System.out.print("A");
+}
+Example(int n)
+{
+this();
+System.out.print("B");
+}
+
+}
+class Test 
+{ 
+    public static void main(String[] args) 
+    { 
+    Example e = new Example(5);
+        System.out.print("hello");
+    } 
+}
+
+a).ABhello
+b).Bhello
+c).Ahello
+d).Bahello
+
+Ans) a
+
+//9.class Example
+{
+static Example()
+{
+System.out.print("A");
+}
+
+}
+class Test 
+{ 
+    public static void main(String[] args) 
+    { 
+    Example e = new Example();
+        System.out.print("hello");
+    } 
+}
+
+a).Compilation error
+b).Ahello
+c).Runtime error
+d).Hello
+
+Ans) a
+
+//10.what is the output
+class Example
+{
+void Example()
+{
+System.out.print("A");
+}
+
+}
+class Test 
+{ 
+    public static void main(String[] args) 
+    { 
+    Example e = new Example();
+        System.out.print("hello");
+    } 
+} 
+
+hello
+Compilation error
+Runtime error
+Ahello
+
+Ans: a
+
+//11.what is the output
+class A
+{
+    static int i;
+    static
+    {
+        System.out.print(1);
+ 
+        i = 100;
+    }
+}
+public class Hello 
+{
+	static
+		{
+			System.out.print(2);
+		}
+	public static void main(String[] args) 
+	{
+			System.out.print(3);
+			System.out.print(A.i);
+	}
+}
+
+a).231100
+b).Compilation error
+c).3100
+d).23100
+
+Ans) a
+
+12).what is the output
+class Hello
+{
+	int i;
+	static
+	{
+		System.out.println(i);
+	}
+	public static void main(String args[])
+	{
+	}
+}
+
+a).compile time error
+b).Runtime error
+c).1
+d).No output
+
+Ans) a
+
+//13.what is the output?
+class Hello { 
+public static void main(String[] args)
+{
+	int x = 20;
+	System.out.println(x);
+}
+static
+{
+	int x = 10;
+	System.out.print(x + " ");
+	}
+} 
+
+a) 10 20
+b) 20 10
+c) 10 10
+d) 20 20
+
+Output: a 
+
+
+//14.what is the output
+ class Test 
+{ 
+    public static void main(String[] args) throws InterruptedException 
+    { 
+        Test t1 = new Test(); 
+        Test t2 = new Test();  
+        t1 = null;  
+        System.gc(); 
+        t2 = null;
+    }   
+    protected void finalize() throws Throwable 
+    { 
+        System.out.println("Garbage collector called");  
+    } 
+} 
+
+a).Garbage collector called
+b).Garbage collector called  Garbage collector called
+c).Compilation error
+d).Runtime error
+
+Ans: a
+
+//15.what is the output
+class Test
+{
+	public static void main(String args[])
+	{
+		int arr[2];
+		System.out.println(arr[0]);
+		System.out.println(arr[1]);
+	}
+}
+
+a)0 0
+b) garbage value garbage value
+c) Compiler Error
+d) Exception
+
+answer: c
+
+
+
+
+
+
+
