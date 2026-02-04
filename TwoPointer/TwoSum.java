@@ -66,5 +66,3 @@
 // ------------
 // The sum of -1 and 0 is -1.
 // Their 1-based indices are 1 and 2.
-
-

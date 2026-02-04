@@ -1,52 +1,49 @@
+# Java Variables Overview
 
-1️⃣ Instance Variables
-📌 What are they?
+## 1. Instance Variables
 
+### What are they?
 Variables that belong to an object (instance) of a class.
 
+```java
 class Test {
     int x;        // instance variable
     String s;     // instance variable
 }
+```
 
-📌 Key points
+### Key Points
+- Declared inside a class
+- Declared outside methods/constructors
+- Each object gets its own copy
+- Stored in the heap
+- Automatically initialized by JVM
 
-Declared inside a class
+---
 
-Declared outside methods/constructors
+## 2. Static Variables (Class Variables)
 
-Each object gets its own copy
-
-Stored in the heap
-
-Automatically initialized by JVM
-
-2️⃣ Static Variables (Class Variables)
-📌 What are they?
-
+### What are they?
 Variables that belong to the class itself, not to any specific object.
 
+```java
 class Test {
     static int count;  // static variable
 }
+```
 
-📌 Key points
+### Key Points
+- Declared using `static`
+- Only one copy shared by all objects
+- Stored in Method Area / Metaspace
+- Initialized once when class is loaded
+- Can be accessed using class name
 
-Declared using static
-
-Only ONE copy shared by all objects
-
-Stored in method area / metaspace
-
-Initialized once when class is loaded
-
-Can be accessed using class name
-
-📌 Default values
-
+### Default Values
 Same as instance variables.
 
-📌 Example
+### Example
+```java
 class Test {
     static int count;
 
@@ -54,28 +51,35 @@ class Test {
         System.out.println(Test.count); // prints 0
     }
 }
+```
 
-3️⃣ Local Variables (for comparison)
+---
+
+## 3. Local Variables (for comparison)
+
+```java
 class Test {
     public static void main(String[] args) {
         int x;  // local variable
-        System.out.println(x); // ❌ compile-time error
+        System.out.println(x); // compile-time error
     }
 }
+```
 
-📌 Key points
+### Key Points
+- Declared inside methods / blocks
+- Stored in stack
+- No default values
+- Must be initialized before use
 
-Declared inside methods / blocks
+---
 
-Stored in stack
+## Comparison Table
 
-NO default values
-
-Must be initialized before use
-
-Feature	Instance	Static	Local
-Belongs to	Object	Class	Method
-Memory	Heap	Method Area	Stack
-Default value	✅ Yes	✅ Yes	❌ No
-Accessed via	Object	Class name	Direct
-Copies	Per object	One shared	Per block
+| Feature        | Instance | Static | Local |
+|---------------|----------|--------|-------|
+| Belongs to    | Object   | Class  | Method |
+| Memory        | Heap     | Method Area | Stack |
+| Default value | Yes      | Yes    | No |
+| Accessed via  | Object   | Class name | Direct |
+| Copies        | Per object | One shared | Per block |
