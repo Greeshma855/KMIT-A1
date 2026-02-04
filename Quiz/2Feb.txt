@@ -1,0 +1,501 @@
+What is the output of the following code snippet?
+
+Object o = null;
+ if(o == null)
+   System.out.println("True");
+else
+   System.out.println("False");
+Question 1Answer
+
+a.
+False
+
+b.
+Compilation error
+
+c.
+Runtime exception
+
+d.
+True
+
+e.
+NullPointerException
+Question 2
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+What is the output of the following application?
+
+public class Test3 {
+
+  public static void main(String[] args) {
+
+    int x = 0;
+
+    do {
+
+      x++;
+
+    } while(x < 3);
+
+    boolean flag = x == 3 ? true : false;
+
+    System.out.println(flag + "," + x);
+
+  }
+
+}
+
+Question 2Answer
+
+a.
+true,4
+
+b.
+Compilation error
+
+c.
+Runtime error
+
+d.
+true,3
+
+
+e.
+false,3
+
+
+f.
+false,4
+Question 3
+Complete
+Mark 0.00 out of 1.00
+Flag question
+Question text
+What is the output of the following code?
+int x1 = 30, x2 = 20;
+
+boolean b = x1 <= x2;
+
+if(b = true) System.out.println("Success");
+
+else System.out.println("Failure");
+
+Question 3Answer
+
+a.
+Success
+
+b.
+Runtime exception
+
+c.
+Failure
+
+d.
+Compilation error
+Question 4
+Complete
+Mark 0.00 out of 1.00
+Flag question
+Question text
+What is the output of the following code snippet?
+
+
+
+3: int i = 0, j = 5;
+
+4: while i < 3
+
+5: j--;
+
+6: i++;
+
+7: System.out.println(i+", "+j);
+
+Question 4Answer
+
+a.
+3, 2
+
+b.
+The code contains an infinite loop and does not terminate.
+
+c.
+3, 5
+
+d.
+The code will not compile because of line 4.
+
+e.
+The code will not compile because of line 3.
+
+f.
+4, 2
+Question 5
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+What is the output of the following code?
+
+int x = 15 / 3 * 2 % 4;
+
+System.out.println(x);
+
+Question 5Answer
+
+a.
+Compilation error
+
+b.
+2
+
+c.
+1
+
+d.
+0
+
+
+e.
+4
+Question 6
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+What is the output of the following code?
+ int x = 4;
+System.out.println(x < 5 ? x > 3 ? x == 4 ? 9 : 8 : 7 : 6);
+Question 6Answer
+
+a.
+9
+
+b.
+6
+
+c.
+8
+
+d.
+7
+
+e.
+Compilation error
+Question 7
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+What is the output of the following code?
+
+
+
+boolean a = true, b = false;
+
+int k = 1;
+
+a = (k == 1) & (b = true);
+
+System.out.println(a + ", " + k + ", " + b);
+
+Question 7Answer
+
+a.
+Compilation error
+
+b.
+false, 1, false
+
+c.
+true, 1, true
+
+d.
+false, 1, true
+
+e.
+true, 1, false
+Question 8
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+What is the output of the following code?
+
+  int x = 5;
+long y = x-- + x * 2;
+ if(y > 10)
+   System.out.println("Big");
+else if(y == 10)
+   System.out.println("Exact");
+else
+   System.out.println("Small");
+Question 8Answer
+
+a.
+Big
+
+b.
+Small
+
+c.
+Exact
+
+d.
+None of the above
+
+e.
+Compilation error
+Question 9
+Complete
+Mark 0.00 out of 1.00
+Flag question
+Question text
+What is the output of the following code snippet?
+
+3: int count = 0;
+
+4: ROW_LOOP: for(int row = 1; row <=4; row++)
+
+5: for(int col = 1; col <=2; col++) {
+
+6: if(row + col % 2 == 0) continue ROW_LOOP;
+
+7: count++;
+
+8: }
+
+9: System.out.println(count);
+
+Question 9Answer
+
+a.
+3
+
+b.
+1
+
+c.
+2
+
+d.
+8
+
+e.
+The code will not compile because of line 6
+
+f.
+4
+Question 10
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+What is the output of the following code snippet?
+
+java.util.List<Integer> nums = new java.util.ArrayList<>();
+
+nums.add(5);
+
+nums.add(10);
+
+for(int n : nums) {
+
+  if(n == 5)
+
+    continue;
+
+  System.out.print(n + " ");
+
+}
+
+
+
+Question 10Answer
+
+a.
+10
+
+b.
+5
+
+c.
+5 10
+
+
+d.
+Compilation error
+
+e.
+Runtime exception
+Question 11
+Complete
+Mark 0.00 out of 1.00
+Flag question
+Question text
+What is the output of the following code snippet?
+
+int a = 10;
+
+Integer b = null;
+
+if(a == b)
+
+  System.out.println("Equal");
+
+else
+
+  System.out.println("Not Equal");
+
+Question 11Answer
+
+a.
+Not Equal
+
+b.
+Equal
+
+c.
+NullPointerException
+
+d.
+Runtime exception
+
+e.
+Compilation error
+Question 12
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+What is the result of compiling and running this code?
+ public class Test4 {
+      public static void main(String[] args) {
+           int i = 10;
+           String s = i++ > 10 ? "Yes" : "No";
+           System.out.println(s + "," + i);
+     }
+}
+Question 12Answer
+
+a.
+Yes,10
+
+b.
+No,11
+
+c.
+No,10
+
+d.
+Yes,11
+
+e.
+Runtime error
+Question 13
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+What is the output of the following code snippet?
+
+int p = 5, q = 5;
+
+boolean result = p == q;
+
+if(result = p < q)
+
+  System.out.println("Equal");
+
+else
+
+  System.out.println("Not Equal");
+
+Question 13Answer
+
+a.
+Equal
+
+
+b.
+Compilation error
+
+c.
+Not Equal
+
+d.
+Runtime exception
+Question 14
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+What is the output of the following code snippet?
+
+3: boolean keepGoing = true;
+
+4: int result = 50, i = 15;
+
+5: do {
+
+6: i--;
+
+7: if(i==12) keepGoing = false;
+
+8: result -= 5;
+
+9: } while(keepGoing);
+
+10: System.out.println(result);
+
+Question 14Answer
+
+a.
+40
+
+b.
+45
+
+c.
+50
+
+d.
+Infinite loop
+
+e.
+35
+Question 15
+Complete
+Mark 0.00 out of 1.00
+Flag question
+Question text
+What is the output of the following code?
+
+byte a = 100;
+
+byte b = 50;
+
+byte c = (byte)(a + b);
+
+System.out.println(c);
+
+Question 15Answer
+
+a.
+50
+
+b.
+150
+
+c.
+-106
+
+d.
+Compilation error
+
+e.
+Undefined value
