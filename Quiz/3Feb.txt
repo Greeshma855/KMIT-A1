@@ -1,0 +1,277 @@
+1.What is the output of the following code snippet?
+: boolean keepGoing = true;
+4: int result = 25, i = 7;
+5: do {
+6: i--;
+7: if(i==4) keepGoing = false;
+8: result -= 2;
+9: } while(keepGoing);
+10: System.out.println(result);
+
+A. 17
+B. 19
+C. 21
+D. 23
+E. 25
+F. The code will not compile
+
+Answer: B
+
+2. What is the output of the following code snippet?
+3: int count = 0;
+4: LOOP: for(int r = 1; r <=3; r++)
+5: for(int c = 1; c <=3; c++) {
+6: if(r*c % 2 != 0) continue LOOP;
+7: count++;
+8: }
+9: System.out.println(count);
+
+A. 1
+B. 2
+C. 3
+D. 4
+E. 5
+F. The code will not compile because of line 6
+Answer: C
+
+
+3. What is the output of the following code snippet?
+3: int m = 7, n = 1, x = 0;
+4: while(m > n) {
+5: m--;
+6: n += 1;
+7: x += m + n;
+8: }
+9: System.out.println(x);
+
+A. 11
+B. 15
+C. 24
+D. 21
+E. 18
+F. The code will not compile because of line 7
+
+Answer: C
+
+4.
+
+class Test {
+    public static void main(String[] args) {
+        int a = 5, b = 10;
+
+        if (a++ > 5 | ++b > 10) {
+            System.out.println(a + " " + b);
+        }
+    }
+}
+
+A. 6 11
+B. 6 10
+C. 5 11
+D. Compilation error
+
+Answer: A 
+
+
+5.
+class Test {
+    public static void main(String[] args) {
+        int x = 2, y = 3;
+
+        if (++x > 2 & y++ > 3 || x++ > 3) {
+            System.out.println(x + " " + y);
+        }
+    }
+}
+
+A. No Output
+B. 4 3
+C. 3 4
+D. Compilation error
+
+Answer:A 
+
+6. What is the output of the following code?
+3: final char x = 'A', y = 'C';
+4: char grade = 'B';
+5: switch(grade) {
+6: case x:
+7: case 'B': System.out.print("high");
+8: case 'C': System.out.print("medium"); break;
+9: case y:
+10: case 'D': System.out.print("low");
+11: }
+
+A. high
+B. Compilation error
+C. medium
+D. low
+E. The code will not compile because of line 6
+
+Answer: B
+
+7.
+class Test {
+    public static void main(String[] args) {
+        byte b = 10;
+        b += 100;
+        System.out.println(b);
+    }
+}
+
+A. 110
+B. -146
+C. Compilation error
+D. Runtime exception
+
+Answer: A 
+
+
+8. What is the output of the following code?
+
+3: final char a = 'A', d = 'D';
+4: char grade = 'E';
+5: switch(grade) {
+6: case a:
+7: case 'B': System.out.print("great");
+8: case 'C': System.out.print("good"); break;
+9: case d:
+10: case 'F': System.out.print("not good");
+11: }
+
+A. great
+B. good
+C. not good
+D. Nothing is printed
+E. The code will not compile because of line 6
+
+Answer: D. Nothing is printed
+
+9. What is the output of the following code?
+
+short s1 = 5;
+short s2 = 10;
+short s3 = s1 + s2;
+System.out.println(s3);
+
+
+A. 15
+B. 10
+C. 5
+D. Compilation error
+E. Runtime exception
+F. Undefined value
+
+Answer: D
+(short + short → int)
+
+10. What is the output of the following code?
+
+int x = 1;
+if(x > 0)
+  if(x > 1)
+    System.out.println("A");
+  else
+    System.out.println("B");
+
+
+A. A
+B. B
+C. No output
+D. Compilation error
+E. Runtime exception
+F. Infinite loop
+
+Answer: B
+(else binds to nearest if)
+
+
+11. class Test {
+    public static void main(String[] args) {
+        boolean b = true;
+        System.out.println(b + false);
+    }
+}
+
+A. true
+B. false
+C. Compilation error
+D. Runtime exception
+
+Answer: C
+
+12.
+
+class Test {
+    public static void main(String[] args) {
+        int x = Integer.MAX_VALUE;
+        x = x + 1;
+        System.out.println(x);
+    }
+}
+
+A. 2147483648
+B. -2147483648
+C. Compilation error
+D. Runtime exception
+
+Answer:B
+
+
+13. What is the output of the following code snippet?
+
+boolean x = false, y = true;
+int z = 7;
+x = (z > 7) ^ (y = false);
+System.out.println(x + ", " + z + ", " + y);
+
+
+A. true, 7, true
+B. true, 7, false
+C. false, 7, true
+D. false, 7, false
+E. Compilation error
+F. Runtime exception
+
+Answer: D
+
+14.
+class Test {
+    public static void main(String[] args) {
+        char c = 65535;
+        c++;
+        System.out.println((int)c);
+    }
+}
+Options
+A. 0
+B. 65536
+C. Compilation error
+D. Runtime exception
+
+Answer:A
+
+15.
+class Test
+{
+	public static void main(String args[])
+	{
+		final int x = 10;
+		int y = 20;
+		switch(y) 
+		{
+			case x + 10:
+				System.out.println("Match");
+				break;
+			default:
+				System.out.println("No Match");
+		}
+	}
+}
+
+A) Match
+B) No Match
+C) Compile-time error
+D) Runtime error
+
+Answer: A
