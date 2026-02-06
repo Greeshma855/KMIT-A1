@@ -1,0 +1,241 @@
+1. Why does the following code fail to compile?
+
+String value = "Java";
+for(String s : value) {
+    System.out.print(s);
+}
+
+
+A. String cannot be used in a loop
+B. String does not implement Iterable
+C. String is immutable
+D. Syntax error in for-each loop
+
+Answer: B
+
+
+2. What is the result of the following code?
+
+String[] names = {"Tom", "Bob", "Sam"};
+for(int n : names) {
+    System.out.print(n + " ");
+}
+
+
+A. Tom Bob Sam
+B. 0 0 0
+C. Compilation error
+D. Runtime exception
+
+Answer: C
+
+3. What data types allow the following code to compile? (Choose all that apply)
+
+short a = 10;
+short b = 20;
+_____ c = a + b;
+
+
+A. short
+B. int
+C. long
+D. float
+E. double
+
+Answer: B, C, D, E
+
+4. What will be the output?
+
+int a = 15;
+System.out.println(a > 5 ? a < 20 ? 1 : 2 : 3);
+
+
+A. 1
+B. 2
+C. 3
+D. Compilation error
+
+Answer: A
+
+5. Which change(s) will allow this code to compile? (Choose all that apply)
+
+long x = 100;
+int y = x * 2;
+
+
+A. Cast x to int
+B. Cast x * 2 to int
+C. Change y to long
+D. Change x to int
+
+Answer: A, B, C, D
+
+6. What is the output?
+
+final char A = 'A';
+char grade = 'B';
+
+switch(grade) {
+    case A:
+    case 'B': System.out.print("Excellent ");
+    case 'C': System.out.print("Good ");
+}
+
+
+A. Excellent
+B. Excellent Good
+C. Good
+D. Compilation error
+
+Answer: B
+
+7. What is the output?
+
+int count = 0;
+OUTER: for(int i=1;i<=3;i++)
+    for(int j=1;j<=3;j++) {
+        if(i*j > 4) continue OUTER;
+        count++;
+    }
+System.out.println(count);
+
+
+A. 3
+B. 4
+C. 5
+D. 6
+
+Answer: D
+
+8. What is the output?
+
+int i = 0;
+for(;;) {
+    i++;
+    if(i==3) break;
+}
+System.out.println(i);
+
+
+A. 2
+B. 3
+C. Infinite loop
+D. Compilation error
+
+Answer: B
+
+9. What is the output?
+
+int x = 1;
+do {
+    x++;
+} while(x < 1);
+System.out.println(x);
+
+
+A. 1
+B. 2
+C. Infinite loop
+D. Compilation error
+
+Answer: B
+
+10. What is the output?
+
+int a = 5;
+int b = 10;
+System.out.println(a > b ? a : b > a ? b : a);
+
+
+A. 5
+B. 10
+C. true
+D. Compilation error
+
+Answer: B
+
+11. What happens when this code runs?
+
+int x = 0;
+String s = null;
+if(x == s)
+    System.out.println("OK");
+
+
+A. OK
+B. Compilation error
+C. Runtime exception
+D. No output
+
+Answer: B
+
+12. What is the output?
+
+for(int i=0; i<5; i++) {
+    if(i==2) continue;
+    System.out.print(i);
+}
+
+
+A. 01234
+B. 0134
+C. 013
+D. 01
+
+Answer: B
+
+13. What is the output?
+
+int x = 2;
+switch(x) {
+    default: System.out.print("D ");
+    case 1: System.out.print("A ");
+    case 2: System.out.print("B ");
+}
+
+
+A. B
+B. A B
+C. D A B
+D. Compilation error
+
+Answer: A
+
+14. What is the output ?
+
+int x = 5;
+System.out.println(true ? x : 5.0);
+
+
+A. 5
+B. 5.0
+C. Compilation error
+D. Runtime exception
+
+Answer: B
+
+15. What is the output of Code snippet?
+
+int count = 0;
+OUTER:
+for(int i=1;i<=3;i++)
+  for(int j=1;j<=3;j++) {
+    if(i==j) continue OUTER;
+    count++;
+  }
+System.out.println(count);
+
+
+A. 3
+B. 4
+C. 6
+D. 9
+
+Answer: A
+
+
+
+
+
+
+
