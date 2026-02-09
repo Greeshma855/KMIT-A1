@@ -78,7 +78,43 @@ public class ZigZag {
 
     // Zigzag level order traversal
     public static List<List<Integer>> zigzagLevelOrder(TreeNode root) {
-        //WRITE YOUR CODE HERE AND RETURN LIST
+        List<List<Integer>> l = new ArrayList<>();
+        Queue<TreeNode> q = new LinkedList<>();
+        if(root==null)
+        {
+            return l;
+        }
+        q.add(root);
+        boolean lefttoright = true;
+        while(!q.isEmpty())
+        {
+            int size = q.size();
+            List<Integer> level = new ArrayList<>();
+            for(int i=0;i<size;i++)
+            {
+                TreeNode node = q.poll();
+                if(lefttoright)
+                {
+                    level.add(node.val);
+                }
+                else
+                {
+                    level.add(0,node.val);
+                }
+                if(node.left!= null)
+                {
+                    q.add(node.left);
+                }
+                if(node.right!=null)
+                {
+                    q.add(node.right);
+                }
+            }
+            l.add(level);
+            lefttoright = !lefttoright;
+            
+        }
+        return l;
     }
 
     public static void main(String[] args) {
@@ -90,6 +126,8 @@ public class ZigZag {
         String[] nodes = sc.nextLine().split(" ");
 
         TreeNode root = buildTree(nodes);
+        System.out.println(root.val);
+
 
         List<List<Integer>> ans = zigzagLevelOrder(root);
         System.out.println(ans);
