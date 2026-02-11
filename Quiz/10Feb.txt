@@ -1,0 +1,431 @@
+
+1. import java.time.*;
+
+public class Test {
+    public static void main(String[] args) {
+        LocalTime t = LocalTime.of(6, 15, 30);
+        t.plusHours(2).minusMinutes(15);
+        System.out.println(t);
+    }
+}
+What is printed?
+
+A. 08:00:30
+B. 08:15:30
+C. 06:00:30
+D. 06:15:30
+
+Answer: D
+
+2. import java.time.*;
+
+public class Test {
+    public static void main(String[] args) {
+        LocalDate d = LocalDate.now();
+        d.plusDays(5);
+        System.out.println(d);
+    }
+}
+What is printed?
+
+A. System date + 5 days
+B. System date – 5 days
+C. Current system date
+D. null
+
+Answer: C
+
+3. import java.time.*;
+
+public class Test {
+    public static void main(String[] args) {
+        LocalDateTime dt =
+            LocalDateTime.of(2024, 2, 29, 23, 59, 0);
+        System.out.println(dt);
+    }
+}
+What is the output?
+
+A. 2024-02-29T23:59
+B. 2024-02-29 23:59:00
+C. 2024-02-29T23:59:00
+D. 2024-03-01T23:59:00
+
+Answer: A
+
+4. import java.time.*;
+
+public class Test {
+    public static void main(String[] args) {
+        LocalDate d = LocalDate.of(2025, 1, 1);
+        LocalTime t = LocalTime.of(5, 15);
+
+        LocalDateTime.of(d, t).minusDays(2);
+        System.out.println(d + " " + t);
+    }
+}
+What is printed?
+
+A. 2024-12-30 05:15
+B. 2025-01-01 05:15
+C. 2024-12-31 05:15
+D. 2025-01-03 05:15
+
+Answer: B
+
+5. import java.time.*;
+
+class Test {
+  public static void main(String[] args) {
+    LocalDate start = LocalDate.of(2016, Month.FEBRUARY, 29);
+    LocalDate end = LocalDate.of(2016, Month.MAY, 1);
+    Period period = Period.ofMonths(1);
+
+    sendAlerts(start, end, period);
+  }
+
+  private static void sendAlerts(LocalDate start,
+    LocalDate end, Period period)
+  {
+    while (start.isBefore(end)) {
+      System.out.println("Reminder " + start);
+      start = start.plus(period);
+    }
+  }
+}
+Which dates are printed?
+
+A. 2016-02-29, 2016-03-29, 2016-04-29
+B. 2016-02-29, 2016-03-31, 2016-04-30
+C. 2016-02-29, 2016-03-29, 2016-04-30
+D. 2016-02-29, 2016-03-31, 2016-04-29
+
+ Answer: A
+
+6.
+import java.time.*;
+
+class Test {
+  public static void main(String[] args) {
+    LocalDate d = LocalDate.of(2024, Month.FEBRUARY, 29);
+
+    System.out.println(d.getDayOfWeek());
+    System.out.println(d.getDayOfYear());
+    System.out.println(d.isLeapYear());
+  }
+}
+What is the output?
+
+A.
+
+THURSDAY
+60
+true
+B.
+
+FRIDAY
+60
+true
+C.
+
+FRIDAY
+59
+false
+D.
+
+SATURDAY
+61
+true
+ Answer: A
+
+7. import java.time.*;
+
+class Test {
+  public static void main(String[] args) {
+    LocalDate d = LocalDate.of(2023, Month.APRIL, 15);
+
+    System.out.println(d.getMonth());
+    System.out.println(d.getMonthValue());
+    System.out.println(d.lengthOfMonth());
+    System.out.println(d.lengthOfYear());
+  }
+}
+What is printed?
+
+A.
+
+APRIL
+4
+30
+365
+B.
+
+APRIL
+3
+30
+365
+C.
+
+APRIL
+4
+31
+366
+D.
+
+APRIL
+4
+30
+366
+Answer: A
+
+8. import java.time.*;
+import java.time.format.*;
+
+class Test {
+  public static void main(String[] args) {
+    LocalDateTime dt = LocalDateTime.now();
+
+    DateTimeFormatter f1 =
+      DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM);
+
+    DateTimeFormatter f2 =
+      DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT);
+
+    System.out.println(f1.format(dt));
+    System.out.println(f2.format(dt));
+  }
+}
+Which statement is true?
+
+A. Both lines print date only
+B. First prints date only, second prints date and time
+C. First prints date and time, second prints date only
+D. Both lines print date and time
+
+Answer: B
+
+9.  public class Test2 {
+  public static void main(String[] args) {
+    Integer a = 100;
+    Integer b = 100;
+
+    a++;
+    b++;
+
+    System.out.println(a == b);
+  }
+}
+What is printed?
+
+A. true
+B. false
+C. 100
+D. 101
+
+Answer: A
+
+10. import java.util.*;
+
+class Test {
+  public static void main(String[] args) {
+    List<Double> list = new ArrayList<>();
+    list.add(1.1);
+    list.add(null);
+
+    System.out.println(list);
+
+    double d = list.get(1);
+    System.out.println(d);
+  }
+}
+What happens when this program is executed?
+
+A.
+
+[1.1, null]
+0.0
+B.
+
+[1.1, null]
+null
+C.
+
+[1.1, null]
+followed by an exception
+
+D.
+
+[1.1]
+followed by an exception
+
+Answer: C
+
+11. class Test {
+  public static void main(String[] args) {
+    Object obj = new Object();
+    Double d = 3.0;
+
+    System.out.println(obj.getClass());
+    System.out.println(d.toString());
+  }
+}
+Which output is correct?
+
+A.
+
+class java.lang.Object
+3
+B.
+
+java.lang.Object
+3.0
+C.
+
+class java.lang.Object
+3.0
+D.
+
+class Object
+3
+Answer: C
+
+12. class Test {
+  public static void main(String[] args) {
+    Double d1 = Double.valueOf("10.0");
+    Double d2 = Double.valueOf("10.0");
+
+    System.out.println(d1.equals(d2));
+    System.out.println(d1 == d2);
+  }
+}
+What is printed?
+
+A.
+
+true
+true
+B.
+
+false
+true
+C.
+
+true
+false
+D.
+
+false
+false
+Answer: C
+
+13. class Test {
+  public static void main(String[] args) {
+    Float f = Float.valueOf("7.5f");
+    int i = Integer.parseInt("007");
+
+    System.out.println(f.floatValue());
+    System.out.println(i);
+  }
+}
+What is printed?
+
+A.
+
+7.5
+7
+B.
+
+7.5f
+007
+C.
+
+7.5
+007
+D.
+
+7
+7
+Answer: A
+
+14. class Test {
+  public static void main(String[] args) {
+    Integer a = 127;
+    Integer b = a;
+
+    a++;
+    b++;
+
+    System.out.println(a);
+    System.out.println(b);
+    System.out.println(a == b);
+  }
+}
+What is the output?
+
+A.
+
+128
+128
+true
+B.
+
+128
+128
+false
+C.
+
+127
+127
+true
+D.
+
+128
+127
+false
+
+Answer: B
+
+15. class Test {
+  public static void main(String[] args) {
+    Integer p = 200;
+    Integer q = p;
+
+    System.out.println(p == q);
+
+    p--;
+    q++;
+
+    System.out.println(p);
+    System.out.println(q);
+    System.out.println(p == q);
+  }
+}
+What is the output?
+
+A.
+
+true
+199
+201
+true
+B.
+
+true
+199
+201
+false
+C.
+
+false
+199
+201
+false
+D.
+
+true
+200
+200
+false
+
+ Answer: B
+
