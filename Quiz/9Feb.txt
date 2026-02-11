@@ -1,0 +1,373 @@
+1. import java.time.*;
+
+public class Test {
+    public static void main(String[] args) {
+        LocalDateTime dt = LocalDateTime.now();
+        dt.plusDays(10);
+        System.out.println(dt.getDayOfMonth());
+    }
+}
+Which statement is correct?
+
+A. Prints day after adding 10 days
+B. Prints current system date
+C. Compilation error due to immutability
+D. Runtime exception
+
+Answer: B
+
+2. import java.time.*;
+
+public class Test {
+    public static void main(String[] args) {
+        LocalDate d = LocalDate.of(2026, Month.FEBRUARY, 25);
+        System.out.println(d);
+    }
+}
+What is the output?
+
+A. 2026-02-25
+B. 2026-02-26
+C. Compilation error
+D. Runtime exception
+
+Answer: A
+
+3.
+import java.time.*;
+
+public class Test {
+    public static void main(String[] args) {
+        LocalDateTime dt =
+            LocalDateTime.of(2027, Month.APRIL, 5, 6, 15, 30, 0);
+        System.out.println(dt);
+    }
+}
+What is the output?
+
+A. 2027-04-05 06:15:30
+B. 2027-04-05T06:15:30
+C. 2027/04/05T06:15:30
+D. 2027-04-05T06:15:30.000000000
+
+Answer: B
+
+4. import java.time.*;
+
+public class Test {
+    public static void main(String[] args) {
+        LocalDate d = LocalDate.of(2026, 8, 29);
+        d = d.plusYears(1);
+        System.out.println(d);
+    }
+}
+What is printed?
+
+A. 2027-08-29
+B. 2027-08-28
+C. 2027-09-01
+D. 2026-09-01
+
+Answer: A
+
+5. import java.time.*;
+
+public class Test {
+    public static void main(String[] args) {
+        LocalDate date = LocalDate.of(2026, 3, 10);
+        LocalTime time = LocalTime.of(5, 15);
+
+        LocalDateTime dt =
+            LocalDateTime.of(date, time)
+                         .minusDays(1)
+                         .minusHours(10)
+                         .minusSeconds(30);
+
+        System.out.println(dt);
+    }
+}
+What is printed?
+
+A. 2026-03-09T19:14:30
+B. 2026-03-08T19:14:30
+C. 2026-03-09T18:14:30
+D. 2026-03-09T19:15:30
+
+Answer: B
+
+6. 
+import java.time.*;
+
+public class Test {
+    public static void main(String[] args) {
+        LocalDate d = LocalDate.now();
+        d = d.plusDays(2).plusMinutes(30);
+        System.out.println(d);
+    }
+}
+
+
+A. Date increases by 2 days and 30 minutes
+B. Date increases by only 2 days
+C. Exception is thrown before printing
+D. Date remains unchanged
+
+Answer: C
+
+7. import java.time.*;
+
+class Test1 {
+  public static void main(String[] args) {
+    LocalDate start = LocalDate.of(2015, Month.JANUARY, 5);
+    LocalDate end = LocalDate.of(2015, Month.MARCH, 5);
+    Period period = Period.ofWeeks(2);
+
+    sendAlerts(start, end, period);
+    System.out.println("start " + start);
+  }
+
+  private static void sendAlerts(LocalDate start,
+    LocalDate end, Period period)
+  {
+    while (start.isBefore(end)) {
+      System.out.println("Reminder " + start);
+      start = start.plus(period);
+    }
+  }
+}
+How many times is Reminder printed?
+
+A. 3
+B. 4
+C. 5
+D. 6
+
+Answer: C
+
+8.import java.time.*;
+
+class Test3 {
+  public static void main(String[] args) {
+    LocalDate d1 = LocalDate.of(2027, 1, 5);
+    LocalDate d2 = LocalDate.of(2027, 1, 5);
+    LocalDate d3 = LocalDate.of(2027, 1, 6);
+
+    System.out.println(d1.isAfter(d2));
+    System.out.println(d1.isBefore(d3));
+    System.out.println(d2.isBefore(d1));
+  }
+}
+What is the output?
+
+A.
+
+true
+true
+false
+B.
+
+false
+true
+false
+C.
+
+false
+false
+true
+D.
+
+true
+false
+true
+Answer: B
+
+9. 
+import java.time.*;
+import java.time.format.*;
+
+class Test {
+  public static void main(String[] args) {
+    LocalDateTime dt = LocalDateTime.of(2025, 2, 25, 10, 30);
+
+    DateTimeFormatter f =
+      DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT);
+
+    System.out.println(f.format(dt));
+    System.out.println(dt.format(f));
+  }
+}
+Which statement is correct about the output?
+
+A. Both lines print the same localized date only
+B. First prints date, second prints date and time
+C. Both lines print localized date and time
+D. Order of format calls changes the result
+
+Answer: A
+ 
+10. 
+import java.time.*;
+import java.time.format.*;
+
+class Test {
+  public static void main(String[] args) {
+    LocalDate d = LocalDate.of(2025, Month.DECEMBER, 25);
+
+    DateTimeFormatter f =
+      DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL);
+
+    System.out.println(d.format(f));
+  }
+}
+Which of the following best represents the output format?
+(Exact language depends on locale)
+
+A. 2025-12-25
+B. 25-12-2025
+C. Thursday 25 December, 2025
+D. Dec 25, 2025
+
+ Answer: C
+
+11.  
+public class Test {
+  public static void main(String[] args) {
+    Integer i = 20;
+    Integer j = i;
+
+    i += 5;
+    j -= 10;
+
+    System.out.println(i + " " + j);
+  }
+}
+What is the output?
+
+A. 15 15
+B. 25 10
+C. 20 20
+D. 25 15
+
+ Answer: B
+
+12.  
+import java.util.*;
+
+class Test {
+  public static void main(String[] args) {
+    List<Double> list = new ArrayList<>();
+    list.add(2.5);
+    list.add(new Double(4));
+
+    double x = list.get(1);
+    System.out.println(list);
+    System.out.println(x);
+  }
+}
+What is the output?
+
+A.
+
+[2.5, 4]
+4.0
+B.
+
+[2.5, 4.0]
+4
+C.
+
+[2.5, 4.0]
+4.0
+D.
+
+[2.5, 4]
+4
+Answer: C
+
+13. 
+class Test {
+  public static void main(String[] args) {
+    Double d = 5.0;
+    Integer i = 5;
+
+    System.out.println(d.equals(i));
+    System.out.println(d == 5.0);
+  }
+}
+What is the output?
+
+A.
+
+true
+true
+B.
+
+false
+true
+C.
+
+true
+false
+D.
+
+false
+false
+
+Answer: B
+
+14. Consider the following code:
+
+import java.util.*;
+
+class TypeTest {
+  public static void main(String args[]) {
+    List<String> data = new ArrayList<>();
+    data.add("A");
+    data.add("B");
+
+    Object[] objArr = data.toArray();
+    String[] strArr = (String[]) objArr;
+
+    System.out.println(strArr.length);
+  }
+}
+What happens when this program is executed?
+
+A. Prints 2
+B. Prints 0
+C. Compilation error
+D. Throws ClassCastException
+E. ArrayStoreException
+Answer: D
+
+15.  Analyze the following code:
+
+import java.util.*;
+
+class DemoRemove {
+  public static void main(String args[]) {
+    String[] names = {"one", "two", "three"};
+    List<String> list = Arrays.asList(names);
+
+    list.set(1, "TWO");
+    System.out.println(list);
+
+    list.remove(0);
+    System.out.println(list);
+  }
+}
+
+A.
+[one, TWO, three]
+[TWO, three]
+
+B.
+[one, TWO, three]
+[one, three]
+C. Compilation error
+D.
+[one, TWO, three] 
+Throws UnsupportedOperationException
+E. Throws ArrayIndexOutOfBoundsException
+
+Answer: D
