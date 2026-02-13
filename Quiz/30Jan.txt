@@ -13,6 +13,8 @@ B) Runtime Erro
 C) Srinivas
 D) None of the above
 Answer: (C)
+import static java.lang.System.*; is valid.
+It imports all static members of System, including out.
 
 2.// Filename: Hello.java 
 package a; 
@@ -47,7 +49,6 @@ a).Hello
 b).Compilation error
 c).Runtime error
 d).World
-
 Ans: a
 
 3.// Filename: Hello.java 
@@ -83,9 +84,11 @@ a).Hello
 b).Compilation error
 c).Runtime error
 d).World
-
 Ans: b
+World does not extend Hello
+Incompatible types → compile-time error
 
+///////////--- IMPORTANT ---//////////
 //4.what is the output?
 package a;
 class display 
@@ -117,6 +120,24 @@ b) 1
 c) 2
 d) 0 1 2
 Answer: c
+Array creation ≠ object creation
+new display[3] creates 3 references, not objects.
+
+Every new creates one object
+arr[i] = new display(); → 3 separate objects.
+
+Instance variables belong to objects
+arr[i].x = value assigns x for that specific object.
+
+Static method can access instance data via object
+main() can do obj.x — totally legal.
+
+Apply method logic object by object
+Only objects satisfying the condition produce output.
+
+Final output comes from the condition, not the array size
+
+
 
 //5.what is the output?
 class T
@@ -143,6 +164,11 @@ b) 40
 d) Compiler Error
 d) Runtime error
 Answer: (b)
+Execution order:
+Instance variable → t = 20
+Instance block → t = 50
+Constructor → t = 40
+
 
 //6.what is the output
 class Point {
@@ -163,6 +189,10 @@ b) runtime error
 c) No output
 d) 0  0
 Answer: (A)
+defined only a parameterized constructor, but called:
+new Point();
+No default constructor exists → compile-time error
+
 
 //7.what is the output?
 class Test 
@@ -201,8 +231,12 @@ a).inside static block a = 4inside constructor a = 11
 b).Compiler Error
 c).Run Time Error
 d).inside static block a = 4inside constructor a = 5
-
 Ans) a
+Order:
+Static block → runs once
+Constructor
+func()
+
 
 //8.what is the output?
 class Example
@@ -231,8 +265,11 @@ a).ABhello
 b).Bhello
 c).Ahello
 d).Bahello
-
 Ans) a
+this() calls default constructor → prints A
+Then prints B
+Then prints hello
+
 
 //9.class Example
 {
@@ -255,8 +292,8 @@ a).Compilation error
 b).Ahello
 c).Runtime error
 d).Hello
-
 Ans) a
+Constructors cannot be static.
 
 //10.what is the output
 class Example
@@ -275,13 +312,17 @@ class Test
         System.out.print("hello");
     } 
 } 
-
 hello
 Compilation error
 Runtime error
 Ahello
-
 Ans: a
+void Example()
+This is not a constructor (it has a return type).
+So:
+Default constructor is used
+void Example() is just a normal method (never called)
+
 
 //11.what is the output
 class A
@@ -311,8 +352,15 @@ a).231100
 b).Compilation error
 c).3100
 d).23100
-
 Ans) a
+Class A is loaded, even though no object is created.
+Static blocks execute when class loads.
+Order:
+Hello static → 2
+main() → 3
+A static → 1
+A.i → 100
+
 
 12).what is the output
 class Hello
@@ -331,8 +379,8 @@ a).compile time error
 b).Runtime error
 c).1
 d).No output
-
 Ans) a
+Static block cannot access non-static variable i.
 
 //13.what is the output?
 class Hello { 
@@ -347,13 +395,13 @@ static
 	System.out.print(x + " ");
 	}
 } 
-
 a) 10 20
 b) 20 10
 c) 10 10
 d) 20 20
-
 Output: a 
+Static block runs first → prints 10
+main() prints 20
 
 
 //14.what is the output
@@ -377,8 +425,8 @@ a).Garbage collector called
 b).Garbage collector called  Garbage collector called
 c).Compilation error
 d).Runtime error
-
 Ans: a
+finalize() may or may not be called if not called explicitly
 
 //15.what is the output
 class Test
@@ -395,9 +443,8 @@ a)0 0
 b) garbage value garbage value
 c) Compiler Error
 d) Exception
-
 answer: c
-
+should have been int arr[] = new int[2];
 
 
 
