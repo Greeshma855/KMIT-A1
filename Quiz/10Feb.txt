@@ -221,8 +221,12 @@ A. true
 B. false
 C. 100
 D. 101
-
 Answer: A
+100 is in Integer cache (-128 to 127)
+After a++ and b++, both become 101
+101 is also cached
+Both references point to same cached object
+✔ a == b → true
 
 10. import java.util.*;
 
