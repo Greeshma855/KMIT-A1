@@ -1,0 +1,433 @@
+MCQ 1 – The Triple Cast Illusion
+class Parent {
+    public void m1() {
+        System.out.println("Parent");
+    }
+}
+
+class Child extends Parent {
+    public void m1() {
+        System.out.println("Child");
+    }
+}
+
+public class Test1 {
+    public static void main(String[] args) {
+        Parent p = new Child();
+        ((Parent)p).m1();
+        ((Child)p).m1();
+        p.m1();
+    }
+}
+
+
+Output?
+
+A) Parent Parent Parent
+B) Child Child Child
+C) Parent Child Child
+D) Compile error
+
+Answer: B
+
+Explanation:
+All three references still point to the same Child object.
+Reference type never changes dynamic dispatch.
+
+MCQ 2 – The Legal but Deadly Cast
+class Parent {
+    public void m1() {
+        System.out.println("Parent");
+    }
+}
+
+class Child1 extends Parent {}
+class Child2 extends Parent {}
+
+public class Test2 {
+    public static void main(String[] args) {
+        Parent p = new Child1();
+        Child2 c = (Child2)p;
+        c.m1();
+    }
+}
+
+
+A) Parent
+B) Child2
+C) Compile error
+D) ClassCastException
+
+Answer: D
+
+Explanation:
+Compiles because both are Parent.
+Crashes because actual object is Child1.
+
+MCQ 3 – The Fake Override
+class Parent {
+    public static void m1() {
+        System.out.println("Parent");
+    }
+}
+
+class Child extends Parent {
+    public static void m1() {
+        System.out.println("Child");
+    }
+}
+
+public class Test3 {
+    public static void main(String[] args) {
+        Parent p = new Child();
+        p.m1();
+    }
+}
+
+
+A) Parent
+B) Child
+C) Compile error
+D) Runtime error
+
+Answer: A
+
+Explanation:
+Static methods are not polymorphic.
+They are resolved at compile time.
+
+MCQ 4 – Overload vs Override Trap
+class Parent {
+    public void m1(Object o) {
+        System.out.println("Object");
+    }
+}
+
+class Child extends Parent {
+    public void m1(String s) {
+        System.out.println("String");
+    }
+}
+
+public class Test4 {
+    public static void main(String[] args) {
+        Parent p = new Child();
+        p.m1("Hello");
+    }
+}
+
+
+A) String
+B) Object
+C) Compile error
+D) Runtime error
+
+Answer: B
+
+Explanation:
+Overloading is decided at compile time using reference type.
+
+MCQ 5 – Constructor Polymorphism Myth
+class Parent {
+    Parent() {
+        System.out.println("Parent");
+    }
+}
+
+class Child extends Parent {
+    Child() {
+        System.out.println("Child");
+    }
+}
+
+public class Test5 {
+    public static void main(String[] args) {
+        Parent p = new Child();
+    }
+}
+
+
+A) Child
+B) Parent
+C) Parent Child
+D) Child Parent
+
+Answer: C
+
+Explanation:
+Parent constructor always runs first.
+
+MCQ 6 – Method Exists but Not Visible
+class Parent {}
+
+class Child extends Parent {
+    public void m1() {
+        System.out.println("Child");
+    }
+}
+
+public class Test6 {
+    public static void main(String[] args) {
+        Parent p = new Child();
+        p.m1();
+    }
+}
+
+
+A) Child
+B) Parent
+C) Compile error
+D) Runtime error
+
+Answer: C
+
+Explanation:
+Compiler checks reference type.
+Method not visible.
+
+MCQ 7 – instanceof Lie
+class A {}
+class B extends A {}
+class C extends A {}
+
+public class Test7 {
+    public static void main(String[] args) {
+        A obj = new B();
+        System.out.println(obj instanceof C);
+    }
+}
+
+
+A) true
+B) false
+C) Compile error
+D) Runtime error
+
+Answer: B
+
+MCQ 8 – Field Polymorphism Illusion
+class Parent {
+    int x = 10;
+}
+
+class Child extends Parent {
+    int x = 20;
+}
+
+public class Test8 {
+    public static void main(String[] args) {
+        Parent p = new Child();
+        System.out.println(p.x);
+    }
+}
+
+
+A) 10
+B) 20
+C) Compile error
+D) Runtime error
+
+Answer: A
+
+Explanation:
+Fields are not polymorphic.
+
+MCQ 9 – Downcast After Upcast
+class Parent {
+    void show() {
+        System.out.println("Parent");
+    }
+}
+
+class Child extends Parent {
+    void show() {
+        System.out.println("Child");
+    }
+}
+
+public class Test9 {
+    public static void main(String[] args) {
+        Parent p = new Child();
+        Parent p2 = (Parent)p;
+        p2.show();
+    }
+}
+
+
+A) Parent
+B) Child
+C) Compile error
+D) Runtime error
+
+Answer: B
+
+MCQ 10 – Wrong instanceof Logic
+class Parent {}
+class Child extends Parent {}
+
+public class Test10 {
+    public static void main(String[] args) {
+        Parent p = new Parent();
+        if(p instanceof Child) {
+            Child c = (Child)p;
+            System.out.println("Child");
+        } else {
+            System.out.println("Not Child");
+        }
+    }
+}
+
+
+A) Child
+B) Not Child
+C) Compile error
+D) Runtime error
+
+Answer: B
+
+MCQ 11 – Abstract Dispatch
+abstract class Parent {
+    abstract void m1();
+}
+
+class Child extends Parent {
+    void m1() {
+        System.out.println("Child");
+    }
+}
+
+public class Test11 {
+    public static void main(String[] args) {
+        Parent p = new Child();
+        p.m1();
+    }
+}
+
+
+A) Parent
+B) Child
+C) Compile error
+D) Runtime error
+
+Answer: B
+
+MCQ 12 – The Super Call Trap
+class Parent {
+    void m1() {
+        System.out.println("Parent");
+    }
+}
+
+class Child extends Parent {
+    void m1() {
+        super.m1();
+        System.out.println("Child");
+    }
+}
+
+public class Test12 {
+    public static void main(String[] args) {
+        Parent p = new Child();
+        p.m1();
+    }
+}
+
+
+A) Child
+B) Parent
+C) Parent Child
+D) Compile error
+
+Answer: C
+
+MCQ 13 – Return Type Covariance
+class Parent {
+    Parent get() {
+        return this;
+    }
+}
+
+class Child extends Parent {
+    Child get() {
+        return this;
+    }
+}
+
+public class Test13 {
+    public static void main(String[] args) {
+        Parent p = new Child();
+        System.out.println(p.get().getClass().getName());
+    }
+}
+
+
+A) Parent
+B) Child
+C) Compile error
+D) Runtime error
+
+Answer: B
+
+MCQ 14 – Method Hidden by Final
+class Parent {
+    final void m1() {
+        System.out.println("Parent");
+    }
+}
+
+class Child extends Parent {
+    void m1() {
+        System.out.println("Child");
+    }
+}
+
+public class Test14 {
+    public static void main(String[] args) {}
+}
+
+
+A) Works
+B) Child prints
+C) Compile error
+D) Runtime error
+
+Answer: C
+
+MCQ 15 – The Ultimate Interview Killer
+class A {
+    public void m1() {
+        System.out.println("A");
+    }
+}
+
+class B extends A {
+    public void m1() {
+        System.out.println("B");
+    }
+}
+
+class C extends B {
+    public void m1() {
+        System.out.println("C");
+    }
+}
+
+public class Test15 {
+    public static void main(String[] args) {
+        A obj = new C();
+        obj.m1();
+        ((B)obj).m1();
+        ((C)obj).m1();
+    }
+}
+
+
+A) A B C
+B) C B A
+C) C C C
+D) Compile error
+
+Answer: C
+
+Explanation:
+No matter how many casts — runtime object = C.
