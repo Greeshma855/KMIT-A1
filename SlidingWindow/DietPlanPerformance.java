@@ -42,8 +42,53 @@
 // •	1 <= k <= calories.length <= 10^5
 // •	0 <= calories[i] <= 20000
 // •	0 <= lower <= upper
+import java.util.*;
+public class DietPlanPerformance
+{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        int [] calories = new int[n];
+        for(int i=0;i<n;i++)
+        {
+            calories[i] = sc.nextInt();
+        }
+        int lower = sc.nextInt();
+        int higher = sc.nextInt();
+
+        int sum = 0;
+        int points = 0;
+        for(int i=0;i<k;i++)
+        {
+            sum+=calories[i];
+        }
+        if(sum<lower)
+        {
+            points--;
+        }
+        else if(sum>higher)
+        {
+            points++;
+        }
+
+        for(int i=k;i<n;i++)
+        {
+            sum+=calories[i];
+            sum-=calories[i-k];
+            if(sum<lower)
+            {
+                points--;
+            }
+            else if(sum>higher)
+            {
+                points++;
+            }
+        }
+        System.out.println(points);
 
 
-
+    }
+}
 
 
