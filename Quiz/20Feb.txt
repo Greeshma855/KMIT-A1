@@ -1,0 +1,393 @@
+1.
+abstract class A {
+    A() {
+        show();
+    }
+    abstract void show();
+}
+class B extends A {
+    int x = 10;
+    void show() {
+        System.out.println(x);
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        B obj = new B();
+    }
+}
+
+What is the output?
+
+A) 10
+B) 0
+C) Compilation error
+D) Runtime error
+
+Answer: B
+
+2.
+abstract class A {
+    abstract void show();
+}
+
+public class Test {
+    public static void main(String[] args) {
+        A obj = new A() {
+            void show() {
+                System.out.println("Hello");
+            }
+        };
+        obj.show();
+    }
+}
+
+What is the output?
+
+A) Hello
+B) Compilation error
+C) Runtime error
+D) Nothing
+
+Answer: A 
+
+3.
+abstract class A {
+    final abstract static void show();
+	
+}
+
+class B extends A {
+    static void show() { 
+	System.out.println("show");
+	}
+	void showWithInt(int a)
+	{
+		System.out.println("show with int");
+	}
+	public static void main(String args[])
+	{
+		A a = new B();
+		a.showWithInt();
+	}
+}
+
+What happens when you try to compile this code?
+
+A) show
+B) Compilation error in A class
+C) Compilation error in B class
+D) Compilation errors in both classes
+
+Answer: D
+
+4.
+abstract class A {
+    abstract void show();
+}
+
+class B extends A {
+    static void show() { }
+}
+
+What happens?
+
+A) Compiles successfully
+B) Compilation error
+C) Method hiding
+D) Runtime error
+
+Answer: B
+
+5.
+
+abstract class A {
+    static {
+        System.out.println("Static A");
+    }
+
+    abstract void show();
+}
+
+class B extends A {
+    void show() {
+        System.out.println("B");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        new B();
+    }
+}
+
+What is the output?
+
+A) Static A
+B) B
+C) Static A B
+D) Compilation error
+
+Answer: A
+
+6.
+class A {
+    protected void show() {
+        System.out.println("A");
+    }
+}
+
+class B extends A {
+    void show() {
+        System.out.println("B");
+    }
+}
+What happens?
+
+A) Prints A
+B) Prints B
+C) Compilation error
+D) Runtime error
+
+Answer: C 
+
+7.
+import java.io.IOException;
+
+class A {
+    void show() throws IOException { }
+}
+
+class B extends A {
+    void show() throws Exception { }
+}
+
+What happens?
+
+A) Compiles
+B) Runtime error
+C) Compilation error
+D) Depends on JVM
+
+Answer: C
+
+8.
+class A {
+    private void show() {
+        System.out.println("A");
+    }
+}
+
+class B extends A {
+    void show() {
+        System.out.println("B");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        A obj = new B();
+        obj.show();
+    }
+}
+What happens?
+
+A) Prints A
+B) Prints B
+C) Compilation error
+D) Runtime error
+
+Answer: C
+
+9.
+class A {
+    Number get() {
+        return 10;
+    }
+}
+
+class B extends A {
+    Integer get() {
+        return 20;
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        A obj = new B();
+        System.out.println(obj.get());
+    }
+}
+What is the output?
+
+A) 10
+B) 20
+C) Compilation error
+D) Runtime error
+
+Answer: B
+
+10.
+
+class A {
+    A() {
+        show();
+    }
+    void show() {
+        System.out.println("A");
+    }
+}
+
+class B extends A {
+    int x = 5;
+    void show() {
+        System.out.println(x);
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        new B();
+    }
+}
+
+What is the output?
+
+A) 5
+B) 0
+C) A
+D) Compilation error
+
+Answer: B
+
+11.
+
+interface A {
+    default void show() {
+        System.out.println("A");
+    }
+}
+
+interface B {
+    default void show() {
+        System.out.println("B");
+    }
+}
+
+class C implements A, B {
+    public void show() {
+        A.super.show();
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        new C().show();
+    }
+}
+What is the output?
+
+A) A
+B) B
+C) Compilation error
+D) Runtime error
+
+Answer: A 
+
+12.
+interface A {
+    void show();
+}
+
+abstract class B implements A {
+}
+
+class C extends B {
+    public static void main(String[] args) {
+        new C();
+    }
+}
+What happens?
+
+A) Compiles successfully
+B) Compilation error
+C) Runtime error
+D) C becomes abstract automatically
+
+Answer: B
+
+13.
+
+interface A {
+    default void show() {
+        System.out.println("A");
+    }
+}
+
+class B {
+    public void show() {
+        System.out.println("B");
+    }
+}
+
+class C extends B implements A {
+    public static void main(String[] args) {
+        new C().show();
+    }
+}
+What is the output?
+
+A) A
+B) B
+C) Compilation error
+D) Runtime error
+
+Answer: B
+
+14.
+interface A {
+    default String toString() {
+        return "A";
+    }
+}
+
+What happens?
+
+A) Compiles successfully
+B) Compilation error
+C) Runtime error
+D) Depends on JVM
+
+Answer: B
+
+15.
+interface A {
+    static void show() {
+        System.out.println("A");
+    }
+}
+
+interface B {
+    default void show() {
+        System.out.println("B");
+    }
+}
+
+class C implements A, B {
+}
+
+public class Test {
+    public static void main(String[] args) {
+        new C().show();
+    }
+}
+
+What is the output?
+
+A) A
+B) B
+C) Compilation error
+D) Runtime error
+
+Answer: B
