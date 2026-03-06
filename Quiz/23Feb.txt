@@ -1,0 +1,812 @@
+class Parent {
+
+    static void show() {
+
+        System.out.println("Parent");
+
+    }
+
+}
+
+
+
+class Child extends Parent {
+
+    static void show() {
+
+        System.out.println("Child");
+
+    }
+
+}
+
+
+
+public class Test {
+
+    public static void main(String[] args) {
+
+        Parent obj = new Child();
+
+        obj.show();
+
+    }
+
+}
+
+Output?
+
+Question 1Answer
+
+a.
+Child
+
+
+b.
+Compilation Error
+
+
+c.
+Runtime Error
+
+
+d.
+Parent
+Question 2
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+class A {
+
+    A() {
+
+        System.out.print("A ");
+
+    }
+
+}
+
+
+
+class B extends A {
+
+    B() {
+
+        this(10);
+
+        System.out.print("B ");
+
+    }
+
+
+
+    B(int x) {
+
+        System.out.print("C ");
+
+    }
+
+}
+
+
+
+public class Test {
+
+    public static void main(String[] args) {
+
+        new B();
+
+    }
+
+}
+
+Output?
+
+Question 2Answer
+
+a.
+C B A
+
+
+b.
+A B C 
+
+
+c.
+A C D
+
+
+d.
+Compilation Error
+
+Question 3
+Complete
+Mark 0.00 out of 1.00
+Flag question
+Question text
+class Parent {
+
+    int x = 10;
+
+}
+
+class Child extends Parent {
+
+    int x = 20;
+
+}
+
+public class Test {
+
+    public static void main(String[] args) {
+
+        Parent obj = new Child();
+
+        System.out.println(obj.x);
+
+    }
+
+}
+
+Output?
+
+
+
+Question 3Answer
+
+a.
+10
+
+
+b.
+Runtime Error
+
+
+c.
+Compilation Error
+
+
+d.
+20
+
+Question 4
+Complete
+Mark 0.00 out of 1.00
+Flag question
+Question text
+class A {
+
+    A() {
+
+        this(10);
+
+    }
+
+    A(int x) {
+
+        this();
+
+    }
+
+}
+
+class Test
+
+{
+
+	public static void main(String args[])
+
+	{
+
+		new A();
+
+	}
+
+}
+
+Result?
+
+Question 4Answer
+
+a.
+Prints nothing
+
+
+b.
+StackOverflowError
+
+
+c.
+Infinite runtime loop
+
+
+d.
+Compilation Error
+
+Question 5
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+class Test {
+
+    int x = 10;
+
+    static void show() {
+
+        System.out.println(this.x);
+
+    }
+
+	public static void main(String args[])
+
+	{
+
+		Test.show();
+
+	}
+
+}
+
+Result?
+
+Question 5Answer
+
+a.
+Runtime Error
+
+
+b.
+10
+
+
+c.
+0
+
+
+d.
+Compilation Error
+
+Question 6
+Complete
+Mark 0.00 out of 1.00
+Flag question
+Question text
+class Test {
+
+    void display(Test t) {
+
+        System.out.println(t.x);
+
+    }
+
+   int x = 100;
+
+   void show() {
+
+        display(this);
+
+    }
+
+    public static void main(String[] args) {
+
+        new Test().show();
+
+    }
+
+}
+
+Output?
+
+Question 6Answer
+
+a.
+Compilation Error
+
+
+b.
+0
+
+
+c.
+100
+
+
+d.
+Runtime Error
+
+Question 7
+Complete
+Mark 0.00 out of 1.00
+Flag question
+Question text
+class A { }
+
+class B extends A { }
+
+class C extends A { }
+
+public class Test {
+
+    public static void main(String[] args) {
+
+        A obj = new B();
+
+        C c = (C) obj;
+
+    }
+
+}
+
+What happens?
+
+
+
+Question 7Answer
+
+a.
+Prints nothing
+
+
+b.
+Works fine
+
+
+c.
+Compilation Error
+
+
+d.
+Runtime Exception
+
+Question 8
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+class A {
+
+    static { System.out.print("1 "); }
+
+    { System.out.print("2 "); }
+
+
+
+    A() {
+
+        System.out.print("3 ");
+
+    }
+
+}
+
+
+
+class B extends A {
+
+    static { System.out.print("4 "); }
+
+    { System.out.print("5 "); }
+
+
+
+    B() {
+
+        System.out.print("6 ");
+
+    }
+
+}
+
+
+
+public class Test {
+
+    public static void main(String[] args) {
+
+        new B();
+
+    }
+
+}
+
+What is the output?
+
+Question 8Answer
+
+a.
+1 2 3 4 5 6
+
+
+b.
+4 1 2 3 5 6
+
+
+c.
+1 4 2 3 5 6
+
+
+d.
+1 4 5 6 2 3
+
+Question 9
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+What is the result of executing the following code?
+
+interface A {
+
+    static void m() {
+
+        System.out.println("A static");
+
+    }
+
+}
+
+interface B {
+
+    default void m() {
+
+        System.out.println("B default");
+
+    }
+
+}
+
+class Test implements A, B {
+
+    public static void main(String[] args) {
+
+        new Test().m();
+
+    }
+
+}
+
+Question 9Answer
+
+a.
+A static
+
+b.
+Compilation error
+
+c.
+B default
+
+d.
+Runtime error
+Question 10
+Complete
+Mark 0.00 out of 1.00
+Flag question
+Question text
+class A {
+
+    A() {
+
+        System.out.println("A");
+
+    }
+
+}
+
+class B extends A {
+
+    B() {
+
+        this(10);
+
+        super();
+
+    }
+
+
+
+    B(int x) { }
+
+}
+
+class Test
+
+{
+
+	public static void main(String args[])
+
+	{
+
+		new B();
+
+	}
+
+}
+
+Result?
+
+Question 10Answer
+
+a.
+A
+
+
+b.
+Runtime Error
+
+
+c.
+A A
+
+
+d.
+Compilation Error
+
+Question 11
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+class A {
+
+    A(int x) {
+
+        System.out.print("A ");
+
+    }
+
+}
+
+
+
+class B extends A {
+
+    B() {
+
+        System.out.print("B ");
+
+    }
+
+}
+
+class Test
+
+{
+
+	public static void main(String args[])
+
+	{
+
+		new B();
+
+	}
+
+}
+
+What happens?
+
+
+
+Question 11Answer
+
+a.
+B A
+
+
+b.
+Runtime Error
+
+
+c.
+Compilation Error
+
+
+d.
+A B
+
+Question 12
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+What is the result of compiling the following code?
+
+interface A {
+
+    default void m() {
+
+        System.out.println("A");
+
+    }
+
+}
+
+interface B extends A {
+
+    void m();
+
+}
+
+class Test implements B {
+
+    public static void main(String[] args) {
+
+        new Test().m();
+
+    }
+
+}
+
+Question 12Answer
+
+a.
+Prints A
+
+b.
+Compilation error
+
+c.
+Must override m()
+
+d.
+Runtime error
+Question 13
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+abstract class A {
+
+    abstract void show();
+
+}
+
+class B extends A {
+
+    void show() {
+
+        System.out.println("B");
+
+    }
+
+}
+
+class C extends B {
+
+}
+
+public class Test {
+
+    public static void main(String[] args) {
+
+        A obj = new C();
+
+        obj.show();
+
+    }
+
+}
+
+Output?
+
+Question 13Answer
+
+a.
+Nothing
+
+
+b.
+Runtime Error
+
+
+c.
+B
+
+
+d.
+Compilation Error
+
+Question 14
+Complete
+Mark 1.00 out of 1.00
+Flag question
+Question text
+class Test {
+
+    int x = 0;
+
+    Test add() {
+
+        x++;
+
+        return this;
+
+    }
+
+   public static void main(String[] args) {
+
+        Test t = new Test();
+
+        t.add().add().add();
+
+        System.out.println(t.x);
+
+    }
+
+}
+
+Output?
+
+
+
+Question 14Answer
+
+a.
+1
+
+
+b.
+3
+
+
+c.
+0
+
+d.
+2
+
+Question 15
+Complete
+Mark 0.00 out of 1.00
+Flag question
+Question text
+class A {
+
+    protected void show() {}
+
+}
+
+
+
+class B extends A {
+
+    void show() {}
+
+}
+
+class Test
+
+{
+
+	public static void main(String args[])
+
+	{
+
+		new B();
+
+	}
+
+}
+
+What happens?
+
+
+
+Question 15Answer
+
+a.
+Runtime Error
+
+
+b.
+Compilation Error
+
+
+c.
+Warning only
+
+
+d.
+Compiles
