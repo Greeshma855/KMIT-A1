@@ -33,39 +33,49 @@
 // 2,3,9 are repeated twice → ignored
 // 7 and 11 occur once → printed.
 
-
 import java.util.*;
-public class FindTwoNonRepeatedElements
-{
+public class FindTwoNonRepeatedElements{
     public static void main(String[] args)
     {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int arr[] = new int[n];
+        int [] arr = new int[n];
         for(int i=0;i<n;i++)
         {
-            arr[i]=sc.nextInt();
+            arr[i] = sc.nextInt();
         }
-        int ans = 0;
+        int xor = 0;
         for(int i=0;i<n;i++)
         {
-            ans = ans^arr[i];
+            xor ^= arr[i];
         }
-        
-        int setbit = ans & (-ans);
-        int num1 = 0;
-        int num2 = 0;
+        int setbit = xor&(-xor);
+        int xor1 = 0;
+        int xor2 = 0;
         for(int i=0;i<n;i++)
         {
-            if((arr[i] & setbit)==1)
+            if((arr[i]&setbit)==0)
             {
-                num1 = num1^arr[i];
+                xor1^= arr[i];
             }
             else
             {
-                num2 = num2^arr[i];
+                xor2^= arr[i];
             }
         }
-        System.out.println(num1+" "+num2);
+        for(int i=0;i<n;i++)
+        {
+            if(arr[i]==xor1)
+            {
+                System.out.println(xor1+" "+xor2);
+                break;
+            }
+            else if(arr[i]==xor2)
+            {
+                System.out.println(xor2+" "+xor1);
+                break;
+            }
+            
+        }
     }
 }

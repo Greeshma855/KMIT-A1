@@ -25,3 +25,24 @@ public class BinaryPalindrome
         }
     }
 }
+
+// import java.util.*;
+
+// public class BinaryPalindrome
+// {
+//     public static void main(String[] args)
+//     {
+//         Scanner sc = new Scanner(System.in);
+//         int n = sc.nextInt();
+
+//         for(int i = 0; i <= n; i++)
+//         {
+//             String bin = Integer.toBinaryString(i);
+
+//             String rev = new StringBuilder(bin).reverse().toString();
+
+//             if(bin.equals(rev))
+//                 System.out.print(i + " ");
+//         }
+//     }
+// }

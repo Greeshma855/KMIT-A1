@@ -47,6 +47,8 @@
 // Key: 5 Priority: 15
 
 
+import java.util.Scanner;
+
 // A Treap Node
 class TreapNode
 {
@@ -58,39 +60,91 @@ class Treap
 {
 	public static TreapNode rightRotate(TreapNode y) 
 	{
-		
+		TreapNode x = y.left;
+		TreapNode T2 = x.right;
+		x.right = y;
+		y.left = T2;
+		return x;
 	}
 
 	// A utility function to left rotate subtree rooted with x
 	public static TreapNode leftRotate(TreapNode x) 
 	{
-		
+		TreapNode y = x.right;
+		TreapNode T2 = y.left;
+		y.left = x;
+		x.right = T2;
+		return y;
 	}
 
 	/* Utility function to add a new key */
 	public static TreapNode newNode(int key) 
 	{
-		
+		TreapNode node = new TreapNode();
+		node.key = key;
+		node.priority = (int)(Math.random() * 100);
+		node.left = null;
+		node.right = null;
+		return node;
 	}
 	
 	
 	public static TreapNode insertNode(TreapNode root, int key) 
 	{
+		if (root == null) return newNode(key);
+		if (key <= root.key) {
+			root.left = insertNode(root.left, key);
+			if (root.left.priority > root.priority) {
+				root = rightRotate(root);
+			}
+		} else {
+			root.right = insertNode(root.right, key);
+			if (root.right.priority > root.priority) {
+				root = leftRotate(root);
+			}
+		}
+		return root;
 	}
 
 	/* Recursive implementation of Delete() */
 	public static TreapNode deleteNode(TreapNode root, int key) {
-}
+		if (root == null) return root;
+		if (key < root.key) {
+			root.left = deleteNode(root.left, key);
+		} else if (key > root.key) {
+			root.right = deleteNode(root.right, key);
+		} else {
+			if (root.left == null) {
+				return root.right;
+			} else if (root.right == null) {
+				return root.left;
+			}
+			if (root.left.priority < root.right.priority) {
+				root = leftRotate(root);
+				root.left = deleteNode(root.left, key);
+			} else {
+				root = rightRotate(root);
+				root.right = deleteNode(root.right, key);
+			}
+		}
+		return root;
+	}
 
 	// Search a given key in a given BST
 	public static TreapNode search(TreapNode root, int key)
 	{
-	
+		if (root == null || root.key == key) return root;
+		if (key < root.key) return search(root.left, key);
+		return search(root.right, key);
 	}
 
 	static void preorder(TreapNode root)
 	{
-	
+		if (root != null) {
+			System.out.println("Key: " + root.key + " Priority: " + root.priority);
+			preorder(root.left);
+			preorder(root.right);
+		}
 	}
 
 	
@@ -112,7 +166,7 @@ class Treap
 
 		TreapNode result = search(root, key);
 		if(result != null)
-			System.out.println("Search result "+ result.key + " " + result.priority);
+			System.out.println("Element found: " + result.key + " with Priority: " + result.priority);
 		else
 			System.out.println("Key " + key + " not found");
 		
@@ -120,9 +174,11 @@ class Treap
 		{
 			System.out.println("Enter item to delete ");
 			key = sc.nextInt();
-			root = deleteNode(root, key);
-			System.out.println("After delete");
-			preorder(root);
+			if(key != -1){
+				root = deleteNode(root, key);
+				System.out.println("Treap after deletion:");
+				preorder(root);
+			}
 		} while(key != -1 && root != null);
     }
 }

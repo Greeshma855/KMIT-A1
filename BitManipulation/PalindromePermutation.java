@@ -29,3 +29,33 @@
 // ----------------
 // false
 
+
+import java.util.*;
+public class PalindromePermutation
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+        int res = 0;
+        for(int i=0;i<s.length();i++)
+        {
+            int index = s.charAt(i)-'a';
+            res ^= (1 << index);
+        }
+        int cnt = 0;
+        while(res>0)
+        {
+            res = res&(res-1);
+            cnt++;
+        }
+        if((cnt==1 && s.length()%2==1) || (cnt==0 && s.length()%2==0))
+        {
+            System.out.println("true");
+        }
+        else
+        {
+            System.out.println("false");
+        }
+    }
+}
